@@ -15,6 +15,55 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/index', function () {
+    return view('index');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/testmodel', function () {
+	$query= App\Post::all();
+	return $query;
+});
+
+Route::get('/testmodel1', function () {
+	$query= App\Post::find(1);
+	return $query;
+});
+
+Route::get('/testmodel2', function () {
+	$query= App\Post::where('title','like','%cepat nikah%')->get();
+	return $query;
+});
+
+Route::get('/testmodel3', function () {
+	$query= App\Post::find(1);
+	$query->title="ciri-ciri keluarga sakinah";
+	$query->save();
+	return $query;
+});
+
+Route::get('/testmodel', function () {
+	$query= App\Siswa::all();
+	return $query;
+});
+
+Route::get('/testmodel1', function () {
+	$query= App\Siswa::find(1);
+	return $query;
+});
+
+Route::get('/testmodel2', function () {
+	$query= App\Siswa::where('nama','like','%indah%')->get();
+	return $query;
+});
+
+Route::get('/testmodel3', function () {
+	$query= App\Siswa::find(1);
+	$query->nama="indah";
+	$query->save();
+	return $query;
+});
+
