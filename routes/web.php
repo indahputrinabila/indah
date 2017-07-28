@@ -19,6 +19,10 @@ Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/about', function () {
+	return view('about');
+});
+
 
 Auth::routes();
 
@@ -66,4 +70,11 @@ Route::get('/testmodel3', function () {
 	$query->save();
 	return $query;
 });
+
+Route::get('cektampilan', function(){
+	return view ('layouts.master');
+});
+ Route::get('tampilan', function(){
+ 	return view ('layouts.tampilan');
+ });
 
